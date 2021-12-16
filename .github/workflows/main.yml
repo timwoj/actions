@@ -1,0 +1,11 @@
+name: add_project
+
+on:
+  issues:
+    types: [milestoned,demilestoned]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello
+        echo: "Milestoned!"
