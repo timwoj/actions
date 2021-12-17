@@ -34,7 +34,7 @@ jobs:
 
   add_to_project:
     name: Add Issue to Project
-    if: github.event.issue.action == 'milestoned'
+    if: github.event.action == 'milestoned'
     runs-on: ubuntu-latest
     steps:
       - name: Hello
@@ -42,7 +42,7 @@ jobs:
 
   remove_from_project:
     name: Remove Issue from Project
-    if: github.event.issue.action == 'demilestoned'
+    if: github.event.action == 'demilestoned'
     runs-on: ubuntu-latest
     steps:
       - name: Hello
