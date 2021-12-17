@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Hello
-        run: echo Milestoned!
+        run: echo ${{ github.event.issue.number }} Milestoned!
