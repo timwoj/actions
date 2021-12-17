@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Hello
-        run: echo Issue #${{ github.event }} Milestoned!
+        run: echo Issue #${{ github.event.issue.number }} Milestoned!
 
   remove_from_project:
     name: Remove Issue from Project
@@ -46,4 +46,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Hello
-        run: echo Issue #${{ github.event }} Demilestoned!
+        run: echo Issue #${{ github.event.issue.number }} Demilestoned!
