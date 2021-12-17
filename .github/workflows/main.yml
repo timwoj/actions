@@ -4,7 +4,7 @@ on:
   issues:
     types: [milestoned,demilestoned]
 jobs:
-  context:
+  dump_context:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
@@ -31,8 +31,19 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
-  build:
+
+  add_to_project:
+    name: Add Issue to Project
+    if: ${{ github.event.issue.action }} == "milestoned"
     runs-on: ubuntu-latest
     steps:
       - name: Hello
         run: echo Issue #${{ github.event }} Milestoned!
+
+  remove_from_project:
+    name: Remove Issue from Project
+    if: ${{ github.event.issue.action }} == "emilestoned"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello
+        run: echo Issue #${{ github.event }} Demilestoned!
